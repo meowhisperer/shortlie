@@ -1,0 +1,16 @@
+{
+  "name": "shortlie",
+  "version": "1.0.0",
+  "description": "",
+  "main": "short.js",
+  "dependencies": {
+    "telegraf": "^3.22.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node short.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
