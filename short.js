@@ -23,7 +23,7 @@ echo.register(echoing)
 
 const bot = new Telegraf(process.env.BOT_TOKEN)
 bot.use(session())
-bot.use(stage.middleware())
+bot.use(echo.middleware())
 
 bot.catch(console.log)
 
