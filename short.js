@@ -19,7 +19,7 @@ echoing.action('delete', ({ deleteMessage }) => deleteMessage());
 
 const echo = new Stage()
 echo.command('cancel', leave())
-echo.register('echoing')
+echo.register(echoing)
 
 const bot = new Telegraf(process.env.BOT_TOKEN)
 bot.use(session())
