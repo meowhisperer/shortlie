@@ -13,6 +13,7 @@ const keyboard = Markup.inlineKeyboard([
 
 const echoing = new Scene('echoing')
 echoing.enter((ctx) => ctx.reply('Echo mode on, end /leave to ...well turn the mode off'))
+echoing.leave((ctx) => ctx.reply('Had fun .-.'))
 echoing.command('cancel', leave())
 echoing.on('message', (ctx) => ctx.telegram.sendCopy(ctx.chat.id, ctx.message, Extra.markup(keyboard)))
 echoing.action('delete', ({ deleteMessage }) => deleteMessage());
