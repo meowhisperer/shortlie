@@ -47,6 +47,7 @@ bot.command([`start`, `help`], (ctx) => {
     );
 });
 bot.command('echo', (ctx) => ctx.scene.enter('echoing'))
+bot.command('rename', (ctx) => ctx.scene.enter('renaming'))
 
 bot.launch()
 console.log(`Bot started...`);
