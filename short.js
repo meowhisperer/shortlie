@@ -7,7 +7,7 @@ const session = require('telegraf/session')
 const { leave } = Stage
 
 const keyboard = Markup.inlineKeyboard([
-  Markup.urlButton('❤️', 'http://telegraf.js.org'),
+  Markup.urlButton('❤️', 'http://t.me/theSmokingCat'),
   Markup.callbackButton('Delete', 'delete')
 ])
 
@@ -18,9 +18,18 @@ echoing.command('cancel', leave())
 echoing.on('message', (ctx) => ctx.telegram.sendCopy(ctx.chat.id, ctx.message, Extra.markup(keyboard)))
 echoing.action('delete', ({ deleteMessage }) => deleteMessage());
 
+const renaming = new Scene('renaming')
+renaming.enter((ctx) => ctx.reply('Send file'))
+renaming.leave((ctx) => ctx.reply('Bye', Extra.markup(keyboard)))
+renaming.on('message', (ctx) => ctx.replyWithDocument(ctx.message.document.file_id, {
+  filename: ctx.message.text
+}))
+renaming.command('leave', leave())
+
 const echo = new Stage()
 echo.command('cancel', leave())
 echo.register(echoing)
+echo.register(renaming)
 
 const bot = new Telegraf(process.env.BOT_TOKEN)
 bot.use(session())
