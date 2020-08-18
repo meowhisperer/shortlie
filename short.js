@@ -29,11 +29,15 @@ renaming.command('leave', leave())
 const echo = new Stage()
 echo.command('cancel', leave())
 echo.register(echoing)
-echo.register(renaming)
+
+const rename = new Stage()
+rename.command('cancel', leave())
+rename.register(renaming)
 
 const bot = new Telegraf(process.env.BOT_TOKEN)
 bot.use(session())
 bot.use(echo.middleware())
+bot.use(rename.middleware())
 
 bot.catch(console.log)
 
