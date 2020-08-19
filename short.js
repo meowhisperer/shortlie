@@ -23,7 +23,7 @@ renaming.enter((ctx) => ctx.reply('Send file'))
 renaming.leave((ctx) => ctx.reply('Bye', Extra.markup(keyboard)))
 renaming.on('message', (ctx) => ctx.replyWithDocument({
   file_id: ctx.message.document.file_id,
-  filename: ctx.message.text
+  filename: ctx.message.caption
 }))
 renaming.command('leave', leave())
 
