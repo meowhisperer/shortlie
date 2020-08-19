@@ -22,7 +22,7 @@ const renaming = new Scene('renaming')
 renaming.enter((ctx) => ctx.reply('Send file'))
 renaming.leave((ctx) => ctx.reply('Bye', Extra.markup(keyboard)))
 renaming.on('message', (ctx) => ctx.replyWithDocument({
-  existing file_id: ctx.message.document.file_id,
+  file_id: ctx.message.document.file_id,
   filename: ctx.message.text
 }))
 renaming.command('leave', leave())
