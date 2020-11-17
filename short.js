@@ -7,7 +7,7 @@ const session = require('telegraf/session')
 const { leave } = Stage
 
 const keyboard = Markup.inlineKeyboard([
-  Markup.urlButton('❤️', 'http://t.me/theSmokingCat'),
+  Markup.urlButton('🧡', 'http://t.me/theSmokingCat'),
   Markup.callbackButton('Delete', 'delete')
 ])
 
